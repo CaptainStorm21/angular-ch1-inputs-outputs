@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notifications-manager.component.scss']
 })
 export class NotificationsManagerComponent implements OnInit {
-  notificationsCount = 0
+  // notificationsCount = 0
   constructor() { }
 
   ngOnInit(): void {
