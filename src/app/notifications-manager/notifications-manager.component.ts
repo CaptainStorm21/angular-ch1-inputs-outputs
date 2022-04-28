@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+/**
+ * step 2
+ * convert the notificationsCount property in
+ * notifications-manager.component.ts to @Input(),
+ * rename it to count, and replace its usages as
+ * follows:
+ */
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-notifications-manager',
@@ -7,20 +14,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsManagerComponent implements OnInit {
   // notificationsCount = 0
+  //step 2.1 - add @input()
+  @Input() count = 0;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   addNotification() {
-    this.notificationsCount++;
+    //step 2.1
+    // this.notificationsCount++;
+    this.count++;
   }
 
   removeNotification() {
-    if (this.notificationsCount == 0) {
+    if (this.count == 0) {
       return;
     }
-    this.notificationsCount--;
+    this.count--;
   }
 
   resetCount() {
