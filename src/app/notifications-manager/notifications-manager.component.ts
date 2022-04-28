@@ -5,38 +5,31 @@
  * rename it to count, and replace its usages as
  * follows:
  */
-import { Component, OnInit, Input } from '@angular/core';
-
-@Component({
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'; @Component({
   selector: 'app-notifications-manager',
   templateUrl: './notifications-manager.component.html',
   styleUrls: ['./notifications-manager.component.scss']
 })
 export class NotificationsManagerComponent implements OnInit {
-  // notificationsCount = 0
-  //step 2.1 - add @input()
   @Input() count = 0;
+  @Output() countChanged = new EventEmitter<number>();
 
   constructor() { }
-
   ngOnInit(): void {
   }
-
   addNotification() {
-    //step 2.1
-    // this.notificationsCount++;
     this.count++;
+    this.countChanged.emit(this.count);
   }
-
   removeNotification() {
     if (this.count == 0) {
       return;
     }
     this.count--;
+    this.countChanged.emit(this.count);
   }
-
   resetCount() {
     this.count = 0;
+    this.countChanged.emit(this.count);
   }
-
 }

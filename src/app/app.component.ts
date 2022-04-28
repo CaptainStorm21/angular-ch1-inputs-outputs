@@ -13,5 +13,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  notificationsCount = 0;
+  notificationsCount = 10;
+  updateNotificationsCount(count: number) {
+    this.notificationsCount = count;
+  }
 }
